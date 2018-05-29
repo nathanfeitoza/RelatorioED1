@@ -10,10 +10,12 @@ package relatorioed1;
  * @author Nathan H. Feitoza
  */
 public class DadosTeste {
-    public int teste1 = 20000,
-    teste2 = 200000,
-    teste3 = 2000000,
-    teste4 = 20000000;
+    public int 
+    teste1 = 2000,
+    teste2 = 20000,
+    teste3 = 200000,
+    teste4 = 2000000,
+    teste5 = 20000000;
     private long tempoInicial;
     
     public void IniciarTeste() {
