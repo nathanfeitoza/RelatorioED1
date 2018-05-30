@@ -20,7 +20,7 @@ public class TesteListaVetor {
         DadosTeste dados = new DadosTeste();
         // Para o método adicionar
         //dados.IniciarTeste();
-        int usando = dados.teste4;
+        int usando = dados.teste5;
         ListaVetor<Integer> lista_vetor = new ListaVetor<>(usando);
         
         // Adicionar   
@@ -30,7 +30,6 @@ public class TesteListaVetor {
         for(int i = 0; i < usando; i++) {
             lista_vetor.adicionar(i);
         }
-        
         /*
         // Remover
         dados.IniciarTeste();
