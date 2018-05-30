@@ -55,8 +55,18 @@ public class ListaVetor<Tipo> implements ILista<Tipo> {
         {
             if(this.contador != posicao)
             {
-                for(int i = this.contador; i > posicao; i--)
+                int contador_real = this.contador - (this.contador - posicao);
+                //System.out.println("Cont: "+contador_real+" - Pos: "+posicao);
+                
+                for(int i = contador_real; i > posicao; i--)
                 {
+                    //System.out.println("Contador: "+this.contador+" -- i: "+i);
+                    /*if(i >= this.capacidade()) {
+                        int diminuir = i == this.capacidade() ? 1 : (i + 1) - this.capacidade();
+                        int novoi = i - diminuir;
+                        i = novoi;
+                        System.out.println("Novoi = "+i);
+                    }*/
                     Tipo arr_aux = this.elements[i];
                     this.elements[i] = this.elements[i - 1];
                     this.elements[i - 1] = arr_aux;
