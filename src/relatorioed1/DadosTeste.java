@@ -21,7 +21,9 @@ public class DadosTeste {
     public void IniciarTeste() {
         this.tempoInicial = System.currentTimeMillis();
     }
-    
+    public int TempoRealizado() {
+        return (int) (System.currentTimeMillis() - this.tempoInicial);
+    }
     public void FinalizarTeste() {
         System.out.println("o metodo executou em " + (System.currentTimeMillis() - this.tempoInicial));
     }
