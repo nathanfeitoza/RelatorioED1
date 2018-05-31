@@ -6,6 +6,7 @@
 package TabelaHash;
 import ListaVetor.ListaVetor;
 import ListaSimples.ListaSimplesmenteEncadeada;
+import java.util.Iterator;
 /**
  *
  * @author Nathan H. Feitoza
@@ -57,4 +58,24 @@ public class TabelaHash <Tipo> {
         }
         return lista;
     }
+    
+    public ListaSimplesmenteEncadeada obterLista(ListaSimplesmenteEncadeada valor) {
+        return valor;
+    } 
+    
+    public void remover(Tipo elemento){
+        int indice = this.Hash(""+elemento);
+       ListaSimplesmenteEncadeada lista = (ListaSimplesmenteEncadeada) this.primaria.obter(indice);
+
+            if(lista.tamanho() == 1) {
+                this.primaria.remover(indice);
+            } else {
+                lista.remover(elemento);
+            }
+    }
+    
+    public ListaVetor obertTodos() {
+        return this.primaria;
+    }
+    
 }
