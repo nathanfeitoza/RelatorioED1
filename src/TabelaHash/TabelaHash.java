@@ -14,14 +14,25 @@ import java.util.Iterator;
 public class TabelaHash <Tipo> {
     private ListaVetor<Object> primaria;
     private int capacidadeInicial = 26;
-   
+   /**
+    * Construtor normal da tabela
+    */
     public TabelaHash() {
         this.primaria = new ListaVetor<>(this.capacidadeInicial);
     }
+    /**
+     * Constutor com uma capacidade máxima definida pelo usuário
+     * @param capacidade 
+     */
     public TabelaHash(int capacidade) {
         this.capacidadeInicial = capacidade;
         this.primaria = new ListaVetor<>(capacidade);
     }
+    /**
+     * Função de geração do hash
+     * @param valor
+     * @return 
+     */
     public int Hash(String valor) {
         int cod = 1;
         int lista_len = this.capacidadeInicial;
@@ -32,7 +43,10 @@ public class TabelaHash <Tipo> {
        int hash = cod % lista_len;
        return Math.abs( hash );
     }
-
+    /**
+     * Método de adicção
+     * @param valor 
+     */
     public void adicionar(Tipo valor) {
         int indice = this.Hash(""+valor);
         
@@ -47,7 +61,12 @@ public class TabelaHash <Tipo> {
             this.primaria.adicionar(indice, lista_secundaria);
         }
     }
-    
+    /**
+     * Metódo que obtem a lista dentro de uma posição da tabela
+     * @param elemento
+     * @return
+     * @throws Exception 
+     */
     public ListaSimplesmenteEncadeada obter(Tipo elemento) throws Exception {
         int indice = this.Hash(""+elemento);
         ListaSimplesmenteEncadeada lista = null;
@@ -58,11 +77,18 @@ public class TabelaHash <Tipo> {
         }
         return lista;
     }
-    
+    /**
+     * Obtem a lista
+     * @param valor
+     * @return 
+     */
     public ListaSimplesmenteEncadeada obterLista(ListaSimplesmenteEncadeada valor) {
         return valor;
     } 
-    
+    /**
+     * Remove um elemento da tabela
+     * @param elemento 
+     */
     public void remover(Tipo elemento){
         int indice = this.Hash(""+elemento);
        ListaSimplesmenteEncadeada lista = (ListaSimplesmenteEncadeada) this.primaria.obter(indice);
@@ -73,7 +99,16 @@ public class TabelaHash <Tipo> {
                 lista.remover(elemento);
             }
     }
-    
+    /**
+     * Metódo que limpa a tabela
+     */
+    public void removerTodos(){
+        this.primaria.limpar();
+    }
+    /**
+     * Obtem todos os elementos da tabela
+     * @return 
+     */
     public ListaVetor obertTodos() {
         return this.primaria;
     }
